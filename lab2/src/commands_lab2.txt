@@ -1,0 +1,34 @@
+    1  cd lab2
+    2  cd src
+    3  cd swap
+    4  gcc main.c swap.c -o swap_program
+    5  ./swap_program
+    6  cd ..
+    7  cd revert_string
+    8  gcc main.c revert_string.c -o revert_string
+    9  ./revert_string Bye
+   10  gcc -c -o revert_string.o revert_string.c
+   11  ar rcs librevert.a revert_string.o
+   12  gcc main.c -L. -lrevert -o program_static
+   13  ./program_static Bye
+   14  gcc -c -fPIC revert_string.c -o revert_string.o
+   15  gcc revert_string.o -shared -o librevert.so
+   16  gcc main.c -L. -lrevert -o program_dynamic
+   17  export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+   18  ./program_dynamic Bye
+   19  cd ..
+   20  sudo apt -y install libcunit1 libcunit1-doc libcunit1-dev
+   21  sudo apt -y update
+   22  sudo apt -y install libcunit1 libcunit1-doc libcunit1-dev
+   23  cd revert_string
+   24  gcc -o tests  tests.c -lrevert -lcunit
+   25  cd ..
+   26  cd tests
+   27  gcc -o tests  tests.c -lrevert -lcunit
+   28  gcc -o tests -L. tests.c -lrevert -lcunit
+   29  gcc -I../revert_string -o tests tests -L../revert_string -lrevert -lcunit
+   30  gcc -I../revert_string -o test_program tests.c -L../revert_string -lrevert -lcunit
+   31  export LD_LIBRARY_PATH=../revert_string:$LD_LIBRARY_PATH
+   32  ./test_program
+   33  cd ..
+   34  history > commands_lab2
