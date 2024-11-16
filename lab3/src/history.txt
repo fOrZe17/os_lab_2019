@@ -1,0 +1,25 @@
+    1  cd lab3
+    2  cd src
+    3  gcc sequential_min_max.c find_min_max.c utils.c -o "minmax" >& errorfile.txt
+    4  ./minmax 1 10
+    5  gcc sequential_min_max.c find_min_max.c utils.c -o "minmax" >& errorfile.txt
+    6  ./minmax 1 10
+    7  ./minmax 1 11000
+    8  ./minmax 4 110000000
+    9  ./parallelminmax 2 10
+   10  gcc -o parallel_min_max parallel_min_max.c find_min_max.c utils.c -I.
+   11  ./parallelminmax 2 10
+   12  ./parallel_min_max --seed "10" --array_size "10" --pnum "10" --by_files
+   13  touch exec.c
+   14  make all
+   15  gcc exec.c -o exec
+   16  ./exec
+   17  make exec_seq
+   18  git add lab3/src/run_sequential_min_max.c
+   19  git add ./sequential_min_max.c
+   20  git add ./parallel_min_max.c
+   21  git add ./find_min_max.c
+   22  git add ./makefile
+   23  git add ./exec.c
+   24  git commit -m "добавлен sequential_min_max, parallel_min_max, find_min_max, makefile, exec.c"
+   25  history > history.txt
