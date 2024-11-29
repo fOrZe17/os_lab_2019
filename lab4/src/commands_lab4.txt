@@ -1,0 +1,61 @@
+    1  cd lab3
+    2  cd src
+    3  cp parallel_min_max.c ../../lab4/src/parallel_min_max.c
+    4  cp utils.c ../../lab4/src/utils.c
+    5  cp utils.h ../../lab4/src/utils.h
+    6  cp find_min_max.c ../../lab4/src/find_min_max.c
+    7  cp find_min_max.h ../../lab4/src/find_min_max.h
+    8  cd ../../lab4/src
+    9  gcc -c find_min_max.c -o find_min_max.o
+   10  gcc -c utils.c -o utils.o
+   11  gcc -o parallel_min_max parallel_min_max.c find_min_max.c utils.c
+   12  ./parallel_min_max --seed 92 --array_size 1000 --pnum 4 --timeout 7
+   13  ./parallel_min_max --seed 92 --array_size 1000 --pnum 4 --timeout 7 --by_files
+   14  gcc -o parallel_min_max parallel_min_max.c find_min_max.c utils.c
+   15  ./parallel_min_max --seed 92 --array_size 1000 --pnum 4 --timeout 7
+   16  ./parallel_min_max --seed 92 --array_size 1000 --pnum 4 --timeout 7 --by_files
+   17  nano zombie.c
+   18  gcc -o zombie zombie.c
+   19  ./zombie
+   20  nano zombie.c
+   21  gcc -o zombie zombie.c
+   22  ./zombie
+   23  nano zombie.c
+   24  gcc -o zombie zombie.c
+   25  ./zombie
+   26  gcc -Wno-format -o process_memory process_memory.c
+   27  ./process_memory
+   28  cd ../../lab3/src
+   29  cp makefile ../../lab4/src
+   30  cp sequential_min_max.c ../../lab4/src
+   31  cp exec_sequential.c ../../lab4/src
+   32  cp exec.c ../../lab4/src
+   33  cd ../../lab4/src
+   34  make all
+   35  make clean
+   36  make all
+   37  nano sum_lib.h
+   38  nano sum_lib.c
+   39  gcc -o parallel_sum parallel_sum.c sum_lib.c utils.c -lpthread -Wall -Wno-format
+   40  ./parallel_sum --threads_num 4 --seed 38 --array_size 100000
+   41  mkdir task5_sum
+   42  mv parallel_sum.c ./task5_sum
+   43  mv parallel_sum ./task5_sum
+   44  mv sum_lib.c sum_lib.h ./task5_sum
+   45  cp utils.c ./task5_sum/utils.c
+   46  cp utils.h ./task5_sum/utils.h
+   47  cd task5_sum
+   48  nano makefile
+   49  cp utils.o ./task5_sum/utils.c
+   50  cd..
+   51  cd ..
+   52  cp utils.o ./task5_sum/utils.c
+   53  cp utils.o ./task5_sum/utils.o
+   54  gcc -c sum_lib.c -o sum_lib.o
+   55  cd task5_sum
+   56  gcc -c sum_lib.c -o sum_lib.o
+   57  cd ..
+   58  gcc -c process_memory.c -o process_memory.o
+   59  ./exec.c
+   60  gcc -o exec exec.c
+   61  history > commands_lab4.txt
