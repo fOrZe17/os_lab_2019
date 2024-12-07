@@ -1,0 +1,20 @@
+    1  cd lab6/src
+    2  gcc -o client client.c -lpthread
+    3  gcc -o server server.c -lpthread
+    4 touch servers.txt
+    5 ./server --port 20001 --tnum 4 &
+    6  ./server --port 20002 --tnum 4 &
+    7  ./server --port 20003 --tnum 4 &
+    8  ./client --k 4 --mod 7 --servers servers.txt
+    9  touch makefile
+   10  nano common.h
+   11  nano common.c
+   12  gcc -c common.c -o common.o
+   13  ar rcs libcommon.a common.o
+   14  gcc -o client client.c -pthread -L. -lcommon
+   15  gcc -o server server.c -pthread -L. -lcommon
+   16  ./client --k --mod 7 --servers servers.txt
+   17  ./client --k 4 --mod 7 --servers servers.txt
+   18  make rebuild
+   19  make run_client
+   20  history > commandslab6.txt
