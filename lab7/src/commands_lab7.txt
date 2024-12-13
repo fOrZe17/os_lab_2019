@@ -1,0 +1,17 @@
+    1  cd lab7/src
+    2  gcc -o tcpclient tcpclient.c
+    3  gcc -o tcpserver tcpserver.c
+    4  gcc -o udpclient udpclient.c
+    5  gcc -o udpserver udpserver.c
+    6  touch makefile
+    7  make
+    8  make clean
+    9  ./tcpserver 10050 100
+   10  make
+   11  ./tcpserver 10050 100
+   12  make clean
+   13  make
+   14  ./tcpclient 127.0.0.1 10050 100 16
+   15  ./tcpserver 10050 100
+   16  ./udpserver 20001 1024
+   17  history > commands_lab7.txt
